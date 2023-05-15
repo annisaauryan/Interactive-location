@@ -1,0 +1,39 @@
+// Глобальная переменная для хранения данных о пользователях
+let usersData = [];
+
+// Класс, представляющий пользователя
+class User {
+  constructor(id, name, location) {
+    this.id = id;
+    this.name = name;
+    this.location = location;
+  }
+}
+
+// Функция для добавления нового пользователя
+function addUser(id, name, location) {
+  const user = new User(id, name, location);
+  usersData.push(user);
+}
+
+// Функция для отображения всех пользователей на карте
+function displayUsersMap() {
+  console.log("Отображение пользователей на карте:");
+  usersData.forEach(user => {
+    console.log(`Имя: ${user.name}`);
+    console.log(`Местоположение: ${user.location}`);
+    console.log("--------");
+  });
+}
+
+// Функция для получения количества пользователей
+function getUsersCount() {
+  return usersData.length;
+}
+
+// Пример использования
+addUser(1, "John Doe", "Нью-Йорк");
+addUser(2, "Jane Smith", "Лондон");
+addUser(3, "Alex Johnson", "Сидней");
+displayUsersMap();
+console.log(`Количество пользователей: ${getUsersCount()}`);
